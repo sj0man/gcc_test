@@ -1,3 +1,5 @@
+# 동적 링크되는 라이브러리 만드는 법
+#
 rm *.o *.a *.so 2> /dev/null
 
 gcc -c -fPIC test.c
