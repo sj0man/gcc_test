@@ -14,6 +14,15 @@ int main(void)
 	memset(data, 0, sizeof(data));
 
 
+
+	for (i=0; i<MAX; i++) {
+		printf("% 2d\n", i);
+		printf("%02d\n", i);	
+	}
+
+	return 0;
+
+
 	printf("\"");
 	for (i=0; i<MAX; i++) {
 		printf("cam[%d]=%%d, ", i);

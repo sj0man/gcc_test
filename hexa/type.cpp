@@ -29,7 +29,7 @@ typedef enum {
 
 int func(VOUT_LAYOUT_T layout)
 {
-    printf("%d\n", layout);
+    printf("%d", layout);
 }
 
 int main(void)
