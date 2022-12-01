@@ -29,7 +29,13 @@ typedef enum {
 
 int func(VOUT_LAYOUT_T layout)
 {
-    printf("%d", layout);
+	int i;
+
+    printf("%d\n\n", layout);
+	for (i=0; i<10; i++) {
+		char layout = 'a';
+		printf("%d: %c\n", i, layout++);
+	}
 }
 
 int main(void)
