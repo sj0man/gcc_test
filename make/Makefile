@@ -1,3 +1,6 @@
+#
+# ./obj 폴더는 미리 만들어져 있어야 한다.
+#
 CC = g++
 CXXFLAGS = -Wall -O2
 LDFLAGS =
