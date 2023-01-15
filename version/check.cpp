@@ -4,6 +4,7 @@
 int getVersion(char *szVer, int& major, int& minor, int& patch, int& build)
 {
     sscanf(szVer, "%d.%d.%d.%d", &major, &minor, &patch, &build);
+    return 0;
 }
 
 int main(void)
@@ -20,4 +21,5 @@ int main(void)
     getVersion(strVer2, major, minor, patch, build);
     printf("%d, %d, %d, %d\n", major, minor, patch, build);
 
+    return 0;
 }
