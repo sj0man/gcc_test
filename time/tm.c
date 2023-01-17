@@ -8,6 +8,20 @@
 
 
 
+
+void show_secs(void)
+{
+	int secs = 52200+600;
+
+	printf(
+		"%02d:%02d:%02d\n",
+		secs / SECS_IN_HOUR,
+		(secs % SECS_IN_HOUR) / SECS_IN_MIN,
+		secs % SECS_IN_MIN
+	);
+}
+
+
 int main(void)
 {
 /*
@@ -23,6 +37,10 @@ The <time.h> header shall declare the tm structure,
 	int tm_yday;	// Day of year [0,365].
 	int tm_isdst;	// Daylight Savings flag.
 */
+
+	show_secs();
+	return 0;
+
 	struct tm rmtm, *p_tm;	
     time_t rmtime = time(NULL);
 

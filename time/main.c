@@ -20,12 +20,23 @@ int main()
 	struct tm mytm, *p_tm;
 	char buf[50];
 
+/*
 	mytt = time(NULL);
 	localtime_r(&mytt, &mytm);
 	printf("time_t=%lu, %s\n", mytt, asctime_r(&mytm, buf));
 
 
 	mytt2 = time(NULL);
+	p_tm = localtime(&mytt2);
+	printf("time_t=%lu, %s\n", mytt2, asctime(p_tm));
+*/
+	// current time
+	mytt = 1673932666;
+	localtime_r(&mytt, &mytm);
+	printf("time_t=%lu, %s\n", mytt, asctime_r(&mytm, buf));
+
+	// rmtime
+	mytt2 = 1673845800;
 	p_tm = localtime(&mytt2);
 	printf("time_t=%lu, %s\n", mytt2, asctime(p_tm));
 
