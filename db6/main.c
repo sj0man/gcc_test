@@ -223,13 +223,13 @@ void db6_dump(const char *fname)
 				printf("    type=%02x num_el=%d\n", k, date.num_el[k]);
 
 		}
-*/
 		printf("    ================ chunk ================\n");
 		for (k = 0; k < NUM_CHUNK; k ++) {
 			if (date.chunk[k].valid) {
 				printf("    chunk=%3d bookmark=%d hdd=%d valid=%d\n", k, date.chunk[k].bookmark, date.chunk[k].hdd, date.chunk[k].valid);
 			}
 		}
+*/
 	}
 
 	if (head.off_free_date) {
