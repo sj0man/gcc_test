@@ -40,15 +40,27 @@ static size_t get_file_size (const char * file_name)
 
 int main (int argc, char ** argv)
 {
+	int i, len, maxlen=0;
 	const char * file_name;
 	size_t size;
 
-	if(argc == 1) {
-		printf("Usage: %s filename\n", argv[0]);
+	if(argc < 2) {
+		printf("Usage: %s filename\n\n", basename(argv[0]));
 		return -1;
 	}
-	file_name = argv[1];
-	size = get_file_size(file_name);
-	printf("%35s : %15s 0x%lx\n", file_name, number2comma(size), size);
+
+	for(i=1; i<argc; i++) {		
+		file_name = argv[i];
+		len = strlen(file_name);
+		if(len > maxlen)
+			maxlen = len;
+	}
+
+	for(i=1; i<argc; i++) {
+		file_name = argv[i];
+		size = get_file_size(file_name);
+		printf("%*s: %12s %#lx\n", maxlen, file_name, number2comma(size), size);
+	}
+	printf("\n");
 	return 0;
 }
