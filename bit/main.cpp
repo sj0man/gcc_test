@@ -15,17 +15,15 @@ static void gpio_set_output(u32 pin)
 
 	pin &= (32 - 1);
 
-	printf("31:0x%08x, 0x%08x\n", 31, pin);
+	printf("0x%08x\n", 1<<pin);
 	reg_data = 0x12340000;
 
-	printf("0x%08x\n", reg_data);
-	reg_data |= (1 << pin);	//output
-	printf("0x%08x\n", reg_data);
+	printf("0x%08x + 0x%08x = 0x%08x\n", reg_data, 1<<pin, reg_data|1<<pin);
 }
 
 int main(void)
 {
 	printf("sizeof(u64):%ld\n", sizeof(u64));
 	printf("sizeof(u32):%ld\n", sizeof(u32));
-	gpio_set_output(0x08);
+	gpio_set_output(22);
 }
