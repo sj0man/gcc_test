@@ -29,6 +29,20 @@ static void gpio_set_output(u32 pin)
 	printf("0x%08x + 0x%08x = 0x%08x\n", reg_data, 1<<pin, reg_data|1<<pin);
 }
 
+#define BASE_NUM	0x08
+void test_operater(void)
+{
+	int data = 0xff;
+	bool tf = false;
+
+
+	tf = !!(data & BASE_NUM);				// 0 또는 1 값을 반환한다.
+	printf("%s\n", tf ? "true" : "false");	// bool 값을 출력
+
+	printf("%#x\n", !(data&BASE_NUM));		// 반환하는 값을 0 또는 1 이다.
+
+}
+
 int main(void)
 {
 	printf("sizeof(u64):%ld\n", sizeof(u64));
@@ -36,4 +50,6 @@ int main(void)
 	gpio_set_output(22);
 
 	print_bit(0x12340000);
+
+	test_operater();
 }
