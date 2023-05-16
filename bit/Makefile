@@ -1,6 +1,6 @@
 CC = g++
 CXXFLAGS = -Wall -O2
-TARGET = main
+TARGET = bb
 OBJS = main.o
 
 $(TARGET) : $(TARGET).cpp
