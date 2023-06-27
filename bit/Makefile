@@ -1,6 +1,6 @@
 CC = g++
 CXXFLAGS = -Wall -O2
-TARGET = regfwr
+TARGET = define
 OBJS = main.o
 
 $(TARGET) : $(TARGET).cpp
