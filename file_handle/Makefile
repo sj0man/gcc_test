@@ -1,8 +1,6 @@
 CC = g++
 CXXFLAGS = -Wall -O2
-TARGET = open
-#TARGET = statfs
-#TARGET = main
+TARGET = fgets
 OBJS = tmp.txt
 
 $(TARGET) : $(TARGET).cpp
