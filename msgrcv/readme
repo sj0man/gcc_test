@@ -1,0 +1,9 @@
+참고자료
+man msgrcv
+
+
+테스트 방법
+msgrcv -s
+
+msgrcv -r
+
