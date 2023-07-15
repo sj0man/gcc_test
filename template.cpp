@@ -30,7 +30,11 @@ int file_write(FILE *fp, int cnt)
 	return 0;
 }
 
-int main(void)
+
+/*
+
+*/
+int main(int argc, char *argv[])
 {
 	FILE *fp = NULL;
 	char buf[MAX_CHAR];
