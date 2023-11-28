@@ -11,7 +11,7 @@
 
 	(2) replace by regular expression
 		^([^\t\( ]+)[^\t]*\t(\d{1,})\t(\d{1,})
-		\t{ "\1", \2, \3 },
+		\1, \2, \3
 
 	(3) paste the replacement output into code.
 
