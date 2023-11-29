@@ -22,12 +22,19 @@
 int main(int argc, char *argv[])
 {
 	FILE *fp = NULL;
+	char *fname = NULL;
 	char line[MAX_CHAR];
 	char buf1[MAX_CHAR];
 	char buf2[MAX_CHAR];
 	char buf3[MAX_CHAR];
 
-	if((fp = fopen(FNAME, "r")) != NULL) {
+	if (argc != 2) {
+		printf("Usage: %s <file>\n\n", argv[0]);
+		return -1;
+	}
+
+	fname = argv[1];
+	if((fp = fopen(fname, "r")) != NULL) {
 		while (fgets(line, sizeof(line), fp)) {
 			sscanf(line, "%[^,], %[^,], %s", buf1, buf2, buf3);
 			printf("\t{DDR_ID0, %-40s, %-7s, %-3s },\n", buf1, buf2, buf3);
