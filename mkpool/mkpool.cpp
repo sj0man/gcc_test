@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	if((fp = fopen(fname, "r")) != NULL) {
 		while (fgets(line, sizeof(line), fp)) {
 			sscanf(line, "%[^,], %[^,], %s", buf1, buf2, buf3);
-			printf("{DDR_ID0, %-40s, %-7s, %-3s },\n", buf1, buf2, buf3);
+			printf("{DDR_ID0, %-40s, %-6s, %s },\n", buf1, buf2, buf3);
 		}
 		fclose(fp);
 	}
