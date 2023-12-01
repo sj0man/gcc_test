@@ -6,19 +6,6 @@
 #define FNAME   "tmp.txt"
 #define MAX_CHAR	256
 
-/*
-	(1) copy data from excel to text
-
-	(2) replace by regular expression
-		^([^\t\( ]+)[^\t]*\t(\d{1,})\t(\d{1,})
-		\1, \2, \3
-
-	(3) paste the replacement output into code.
-
-	(4) compile and run
-
-*/
-
 int main(int argc, char *argv[])
 {
 	FILE *fp = NULL;
