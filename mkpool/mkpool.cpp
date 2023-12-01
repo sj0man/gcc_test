@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	char line[MAX_CHAR];
 	char buf1[MAX_CHAR];
 	char buf2[MAX_CHAR];
-	char buf3[MAX_CHAR];
+	int n1, n2;
 
 	if (argc != 2) {
 		printf("Usage: %s <file>\n\n", argv[0]);
@@ -36,8 +36,12 @@ int main(int argc, char *argv[])
 	fname = argv[1];
 	if((fp = fopen(fname, "r")) != NULL) {
 		while (fgets(line, sizeof(line), fp)) {
-			sscanf(line, "%[^,], %[^,], %s", buf1, buf2, buf3);
-			printf("{DDR_ID0, %-40s, %-6s, %s },\n", buf1, buf2, buf3);
+			n1 = n2 = 0;
+			sscanf(line, "%s %d %d", buf1, &n1, &n2);
+			sscanf(buf1, "%[^\t\( ]", buf2);
+
+			// printf("{DDR_ID0, '%s', '%d', '%d' },\n", buf2, n1, n2);
+			printf("{DDR_ID0, %-40s, %-6d, %d },\n", buf2, n1, n2);
 		}
 		fclose(fp);
 	}
