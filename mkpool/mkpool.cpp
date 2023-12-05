@@ -24,13 +24,15 @@ int main(int argc, char *argv[])
 	if((fp = fopen(fname, "r")) != NULL) {
 		while (fgets(line, sizeof(line), fp)) {
 			n1 = n2 = 0;
-			sscanf(line, "%s %d %d", buf1, &n1, &n2);
+			sscanf(line, "%[^\t] %d %d", buf1, &n1, &n2);
 			sscanf(buf1, "%[^\t\( ]", buf2);
+			// printf("'%s' '%s'\n", buf1, buf2);
 
 			// printf("{DDR_ID0, '%s', '%d', '%d' },\n", buf2, n1, n2);
-			printf("{DDR_ID0, %-40s, %-6d, %d },\n", buf2, n1, n2);
+			printf("{DDR_ID0, %-40s, %-7d, %d },\n", buf2, n1, n2);
 		}
 		fclose(fp);
+		printf("{(HD_COMMON_MEM_DDR_ID)-1, -1, -1, -1}\n\n");
 	}
 
 	return 0;
