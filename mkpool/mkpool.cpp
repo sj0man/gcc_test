@@ -11,9 +11,10 @@ int main(int argc, char *argv[])
 	FILE *fp = NULL;
 	char *fname = NULL;
 	char line[MAX_CHAR];
-	char buf1[MAX_CHAR];
-	char buf2[MAX_CHAR];
-	int n1, n2;
+	char full_name[MAX_CHAR];
+	char short_name[MAX_CHAR];
+	int size0, cnt0, total0;
+	int size1, cnt1;
 
 	if (argc != 2) {
 		printf("Usage: %s <file>\n\n", argv[0]);
@@ -23,15 +24,32 @@ int main(int argc, char *argv[])
 	fname = argv[1];
 	if((fp = fopen(fname, "r")) != NULL) {
 		while (fgets(line, sizeof(line), fp)) {
-			n1 = n2 = 0;
-			sscanf(line, "%[^\t] %d %d", buf1, &n1, &n2);
-			sscanf(buf1, "%[^\t\( ]", buf2);
-			// printf("'%s' '%s'\n", buf1, buf2);
+			size0 = cnt0 = size1 = cnt1 = 0;
+			sscanf(line, "%[^\t] %d %d %d %d %d", full_name, &size0, &cnt0, &total0, &size1, &cnt1);
+			sscanf(full_name, "%[^\t\( ]", short_name);
 
-			// printf("{DDR_ID0, '%s', '%d', '%d' },\n", buf2, n1, n2);
-			printf("{DDR_ID0, %-40s, %-7d, %d },\n", buf2, n1, n2);
+			// for debugging
+			// printf("'%s' '%s' size0=%d cnt0=%d\n", full_name, short_name, size0, cnt0);
+
+			printf("{DDR_ID0, %-40s, %-7d, %-3d },\n", short_name, size0, cnt0);
 		}
+		printf("\n");
 		fclose(fp);
+
+		fp = fopen(fname, "r");
+		while (fgets(line, sizeof(line), fp)) {
+			size0 = cnt0 = size1 = cnt1 = 0;
+			sscanf(line, "%[^\t] %d %d %d %d %d", full_name, &size0, &cnt0, &total0, &size1, &cnt1);
+			sscanf(full_name, "%[^\t\( ]", short_name);
+
+			// for debugging
+			// printf("'%s' '%s' size1=%d cnt1=%d\n", full_name, short_name, size1, cnt1);
+
+			printf("{DDR_ID1, %-40s, %-7d, %-3d },\n", short_name, size1, cnt1);
+		}
+		printf("\n");
+		fclose(fp);
+
 		printf("{(HD_COMMON_MEM_DDR_ID)-1, -1, -1, -1}\n\n");
 	}
 
