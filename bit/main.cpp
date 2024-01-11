@@ -43,8 +43,23 @@ void test_operater(void)
 
 }
 
+int test_shift(void)
+{
+	int i;
+	unsigned data = 0;
+
+	for (i=0; i<16; i++) {
+		data |= (1 << i);
+		printf("%08x\n", data);
+	}
+	return 0;
+}
+
 int main(void)
 {
+	test_shift();
+	return 0;
+
 	printf("sizeof(u64):%ld\n", sizeof(u64));
 	printf("sizeof(u32):%ld\n", sizeof(u32));
 	gpio_set_output(22);
