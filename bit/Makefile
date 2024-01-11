@@ -1,7 +1,7 @@
 CC = g++
 CXXFLAGS = -Wall -O2
-TARGET = define
-OBJS = main.o
+TARGET = vloss
+OBJS = vloss.o
 
 $(TARGET) : $(TARGET).cpp
 	$(CC) $(CXXFLAGS) -o $(TARGET) $(TARGET).cpp
