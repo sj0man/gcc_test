@@ -1,7 +1,7 @@
 CC = g++
 CXXFLAGS = -Wall -O2
-TARGET = mkpool
-OBJS = mkpool.o
+TARGET = mkpool8
+OBJS = mkpool8.o
 
 $(TARGET) : $(TARGET).cpp
 	$(CC) $(CXXFLAGS) -o $(TARGET) $(TARGET).cpp
