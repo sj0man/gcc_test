@@ -19,7 +19,12 @@ int print_ddr(int array_index, int ddr_index)
 
 	sprintf(short_name, "%s%d", "DDR_ID", ddr_index);
 	for (i=0; i<MAX_TYPE; i++) {
-		printf("\t{%s, %-40s, %-7d, %-3d},\n", short_name, _name[i], _size[array_index][i], _cnt[array_index][i]);
+		if (_size[array_index][i] == 0 || _cnt[array_index][i] == 0) {
+			printf("//\t{%s, %-40s, %-7d, %-3d},\n", short_name, _name[i], _size[array_index][i], _cnt[array_index][i]);
+		}
+		else {
+			printf("\t{%s, %-40s, %-7d, %-3d},\n", short_name, _name[i], _size[array_index][i], _cnt[array_index][i]);
+		}
 	}
 	printf("\n");
 
