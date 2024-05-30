@@ -6,7 +6,38 @@
 
 #define MAX_NUM		10
 
+#if 1
 
+int main(int argc, char *argv[])
+{
+	int i;
+	unsigned int id[MAX_NUM] = {
+		0x3100,
+		0x3140,
+		0x3701,
+		0x3100,
+		0x3100,
+		0x3100,
+		0x3140,
+		0x3701,
+		0x3100,
+		0x3100,
+	};
+
+	for (i=0; i<MAX_NUM; i++) {
+		if (id[i] & 0x00f0) {
+			printf("\t\t Unexpected chip id\n");
+			printf("\t\t i:%d tid:0x%04x\n", i, id[i]);
+			id[i] &= 0xff0f;
+		}
+
+		printf("id[%d] = 0x%04x\n", i, id[i]);
+	}
+
+	return 0;
+}
+
+#else
 int main(int argc, char *argv[])
 {
 	char *s;
@@ -25,3 +56,4 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
+#endif
