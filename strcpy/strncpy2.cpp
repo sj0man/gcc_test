@@ -30,7 +30,7 @@ int set_info(char *src_str, const char *filter, const char *result)
 	char *dst_str = (char *)calloc(SIZE_DAL_TEXT, sizeof(char));
 	char *dst_ptr = dst_str;
 	char *src_ptr = src_str;
-	int len = SIZE_DAL_TEXT;
+	int src_len = SIZE_DAL_TEXT;
 
 	while(1) {
 		if (strlen(src_ptr) == 0) {
@@ -40,11 +40,11 @@ int set_info(char *src_str, const char *filter, const char *result)
 			strncpy(dst_ptr, result, strlen(result));
 		}
 		else {
-			strncpy(dst_ptr, src_ptr, len);
+			strncpy(dst_ptr, src_ptr, src_len);
 		}
 		// printf("%d: src_ptr: %s -----> dst_ptr: %s\n", cnt, src_ptr, dst_ptr);
 		cnt++;
-		len -= strlen(src_ptr);
+		src_len -= strlen(src_ptr);
 		src_ptr += strlen(src_ptr) + 1;
 		dst_ptr += strlen(dst_ptr) + 1;
 	}
