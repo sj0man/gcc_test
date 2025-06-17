@@ -1,7 +1,13 @@
 CC = g++
+# 64bit 빌드
 CXXFLAGS = -Wall -O2
-TARGET = fmt4
-OBJS = fmt4.o
+
+# 32bit 빌드
+#CXXFLAGS = -Wall -O2 -m32
+
+
+TARGET = fmt5
+OBJS = $(TARGET).o
 
 $(TARGET) : $(TARGET).cpp
 	$(CC) $(CXXFLAGS) -o $(TARGET) $(TARGET).cpp
