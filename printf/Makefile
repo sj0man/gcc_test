@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -O2
 #CXXFLAGS = -Wall -O2 -m32
 
 
-TARGET = fmt5
+TARGET = fmt6
 OBJS = $(TARGET).o
 
 $(TARGET) : $(TARGET).cpp
