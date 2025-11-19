@@ -31,7 +31,6 @@ int file_write(FILE *fp, int cnt)
 }
 
 
-#define NT9831X
 int main(int argc, char *argv[])
 {
 
@@ -39,6 +38,18 @@ int main(int argc, char *argv[])
 	puts("OK");
 #else
 	puts("NG");
+#endif
+
+#if defined(EXTRA_IPC)
+	puts("EXTRA_IPC");
+#endif
+
+#if defined(NT9831X)
+	puts("NT9831X");
+#endif
+
+#if defined(NT9832X)
+	puts("NT9832X");
 #endif
 
 	return 0;
